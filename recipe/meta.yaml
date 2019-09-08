@@ -1,4 +1,4 @@
-{% set version = '9.8-3' %}
+{% set version = '9.8-6' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/fields_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/fields/fields_{{ version }}.tar.gz
-  sha256: 010676e009d48ff605d9881bcedb903b95bc4a271da47eb629d5cbcf1a323de1
+  sha256: 5f61d66c8983a75eb9b6e486fc6ad3ba9272a89211d8194bfc4eb618e62ea91f
 
 build:
   merge_build_host: True  # [win]
-  number: 2
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -47,7 +47,7 @@ test:
 
 about:
   home: https://github.com/NCAR/Fields
-  license: GPL (>= 2)
+  license: GPL-2
   summary: For curve, surface and function fitting with an emphasis on splines, spatial data,
     geostatistics,  and spatial statistics. The major methods include cubic, and thin
     plate splines, Kriging, and compactly supported covariance functions for large data
@@ -68,16 +68,17 @@ about:
     package was supported in part by the National Science Foundation  Grant 1417857
     and the National Center for Atmospheric Research. See the Fields URL for a vignette
     on using this package and some background on spatial statistics.
-  license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_family: GPL2
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
     - conda-forge/r
 
 # Package: fields
-# Version: 9.8-3
-# Date: 2019-05-28
+# Version: 9.8-6
+# Date: 2019-08-19
 # Title: Tools for Spatial Data
 # Authors@R: c( person("Douglas", "Nychka", role = c("aut", "cre"), email = "douglasnychka@gmail.com"), person("Reinhard", "Furrer", role = c("aut"), email = "reinhard.furrer@math.uzh.ch"), person("John", "Paige", role = c("aut"), email = "paigejo@uw.edu"), person("Stephan", "Sain", role = "aut", email = "sainsr2@gmail.com"), person("University Corporation for Atmospheric Research", role="cph", email="nychka@ucar.edu") )
 # Author: Douglas Nychka [aut, cre], Reinhard Furrer [aut], John Paige [aut], Stephan Sain [aut], University Corporation for Atmospheric Research [cph]
@@ -87,6 +88,6 @@ extra:
 # URL: https://github.com/NCAR/Fields
 # Depends: R (>= 3.0), methods, spam, maps
 # NeedsCompilation: yes
-# Packaged: 2019-05-28 19:23:48 UTC; nychka
+# Packaged: 2019-08-19 16:05:15 UTC; nychka
 # Repository: CRAN
-# Date/Publication: 2019-05-28 21:20:03 UTC
+# Date/Publication: 2019-08-19 17:40:05 UTC

@@ -3,7 +3,7 @@ About r-fields
 
 Home: https://github.com/NCAR/Fields
 
-Package license: GPL-2
+Package license: GPL-2.0-or-later
 
 Feedstock license: BSD-3-Clause
 

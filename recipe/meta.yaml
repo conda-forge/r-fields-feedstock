@@ -1,4 +1,4 @@
-{% set version = "11.4" %}
+{% set version = "11.5" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/fields_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/fields/fields_{{ version }}.tar.gz
-  sha256: 3e9084150625ccdcc1f0db644c103ac2c6f44e398d17c28f85f61d9b015d1075
+  sha256: ead94ac472f69520a0a0d9080f830ecf86305380e3bbc7183b7f7bc20d2defd5
 
 build:
   merge_build_host: true  # [win]
@@ -47,7 +47,7 @@ test:
 
 about:
   home: https://github.com/NCAR/Fields
-  license: GPL-2
+  license: GPL-2.0-or-later
   summary: For curve, surface and function fitting with an emphasis on splines, spatial data, geostatistics,  and spatial statistics. The major methods include cubic, and thin plate splines, Kriging, and compactly supported covariance functions for large data sets. The splines and Kriging methods are supported by functions
     that can determine the smoothing parameter (nugget and sill variance) and other covariance function parameters by cross validation and also by restricted maximum likelihood. For Kriging there is an easy to use function that also estimates the correlation scale (range parameter).  A major feature is that any covariance
     function implemented in R and following a simple format can be used for spatial prediction. There are also many useful functions for plotting and working with spatial data as images. This package also contains an implementation of sparse matrix methods for large spatial data sets and currently requires the sparse matrix

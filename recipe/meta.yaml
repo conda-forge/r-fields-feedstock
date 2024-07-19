@@ -1,6 +1,5 @@
 {% set version = "15.2" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-fields
@@ -13,8 +12,7 @@ source:
   sha256: 1f270f2331522ef93e04a8b199dfab17995ac02aaa0a68eeca90fef55f6cad3d
 
 build:
-  merge_build_host: true  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -26,7 +24,9 @@ requirements:
     - r-viridis                  # [build_platform != target_platform]
     - r-spam                     # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ compiler('fortran') }}        # [not win]
     - {{ compiler('m2w64_fortran') }}  # [win]
     - {{ posix }}filesystem        # [win]
@@ -42,7 +42,6 @@ requirements:
     - r-viridis
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-maps
     - r-spam
     - r-viridis

@@ -1,4 +1,4 @@
-{% set version = "16.2" %}
+{% set version = "16.3" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/fields_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/fields/fields_{{ version }}.tar.gz
-  sha256: 3910950cd5476e7e3d17d00dabfa37a6491019426c74b6955a2fbe5648a3b3e4
+  sha256: cbb7a0c0fbb94ff63ea2bade39953f72d15fe8ad3f7ac7111615c7ea4ea26b92
 
 build:
   number: 0

@@ -3,7 +3,7 @@
 
 package:
   name: r-fields
-  version: {{ version|replace("-", "_") }}
+  version: "{{ version|replace("-", "_") }}"
 
 source:
   url:
@@ -16,13 +16,18 @@ build:
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
     - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+    - r-rcolorbrewer             # [build_platform != target_platform]
     - r-maps                     # [build_platform != target_platform]
-    - r-viridis                  # [build_platform != target_platform]
     - r-spam                     # [build_platform != target_platform]
+    - r-viridislite              # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
     - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
@@ -34,17 +39,18 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
-    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
+    - r-rcolorbrewer
     - r-maps
     - r-spam
-    - r-viridis
+    - r-viridislite
   run:
     - r-base
+    - r-rcolorbrewer
     - r-maps
     - r-spam
-    - r-viridis
+    - r-viridislite
 
 test:
   commands:
@@ -52,7 +58,7 @@ test:
     - "\"%R%\" -e \"library('fields')\""  # [win]
 
 about:
-  home: https://github.com/NCAR/Fields
+  home: https://github.com/dnychka/fieldsRPackage
   license: GPL-2.0-or-later
   summary: For curve, surface and function fitting with an emphasis on splines, spatial data, geostatistics,  and spatial statistics. The major methods include cubic, and thin plate splines, Kriging, and compactly supported covariance functions for large data sets. The splines and Kriging methods are supported by 
     functions that can determine the smoothing parameter (nugget and sill variance) and other covariance function parameters by cross validation and also by restricted maximum likelihood. For Kriging there is an easy to use function that also estimates the correlation scale (range parameter).  A major feature is that 

@@ -7,7 +7,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-fields-feedst
 About r-fields
 --------------
 
-Home: https://github.com/NCAR/Fields
+Home: https://github.com/dnychka/fieldsRPackage
 
 Package license: GPL-2.0-or-later
 
@@ -16,7 +16,7 @@ Summary: For curve, surface and function fitting with an emphasis on splines, sp
 About r-fields
 --------------
 
-Home: https://github.com/NCAR/Fields
+Home: https://github.com/dnychka/fieldsRPackage
 
 Package license: GPL-2.0-or-later
 
